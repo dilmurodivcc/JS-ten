@@ -35,7 +35,7 @@ function m2() {
     }
   });
 }
-function m3(){
+function m3() {
   const input = document.getElementById("inputValue3").value;
   const arr = input.trim().split(" ");
   let obj = {};
@@ -60,7 +60,7 @@ function m3(){
 
 function m4() {
   const obj = [
-    {                 
+    {
       name: "John",
       age: 30,
     },
@@ -91,30 +91,87 @@ function m5() {
   const input = document.getElementById("inputValue5").value;
   const array = input.trim().split(" ");
   let obj = {};
-  const minWord = Math.min(...array);
-  console.log(minWord);
-  
-  const maxWord = Math.max(...array)
-  obj.miWord = minWord
-  obj.maxWord = maxWord
-  document.getElementById("output5").innerHTML = `<pre> ${JSON.stringify(obj, null, 2)} </pre>`
+  let length = [];
+  for (let i = 0; i < array.length; i++) {
+    length.push(array[i].length);
+  }
+  const minL = Math.min(...length);
+  const maxL = Math.max(...length);
+  obj.minWord = array.filter((item) => item.length === minL).join("");
+  obj.maxWord = array.filter((item) => item.length === maxL).join("");
+  document.getElementById("output5").innerHTML = `<pre> ${JSON.stringify(
+    obj,
+    null,
+    2
+  )} </pre>`;
 }
 
-function m6() {
-  const input = document.getElementById("inputValue6").value;
-  const array = input.trim().split(" ").join("");
-  document.getElementById("output6").innerHTML = `Probelar siz: "${array}"`;
-}
+const m6 = () => {
+  const inputValue = document.getElementById("inputValue6").value;
+  const numbers = inputValue.split(" ").map(Number);
+  const sum = numbers.reduce((acc, num) => acc + num, 0);
+  const result = sum
+    .toString()
+    .split("")
+    .map((num) => parseInt(num));
+  document.getElementById("output6").innerHTML = `Result: [${result.join(
+    ", "
+  )}]`;
+};
 
 function m7() {
-  const input = document.getElementById("inputValue7").value;
-  const array = input.trim().split("");
-  console.log(array);
-  const numbersArray = array.filter((item) => !isNaN(item)).map(Number);
-  console.log(numbersArray);
-  const newArr = numbersArray.reduce((acc, item) => acc + item, 0);
-  document.getElementById("output7").innerHTML = `Yigindi: [ ${newArr} ]`;
+  let obj = { a: 2, b: 5, c: 7 };
+  let res = Object.entries(obj)
+    .map(([key, value]) => `'${key}${value}'`)
+    .join(", ");
+  document.getElementById("output7").innerHTML = `<pre>[${res}]</pre>`;
 }
+
+
+
+function m8() {
+  let obj = { a: 2, b: 5, c: 7 };
+  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
+  let res = sum
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce((acc, num) => acc + num, 0);
+  document.getElementById("output8").innerHTML = `<pre>[${res}]</pre>`;
+}
+
+
+
+function m9() {
+  let obj = { a: 2, b: 5, c: 7 };
+  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
+  let res = sum
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce((acc, num) => acc * num, 1);
+  document.getElementById("output9").innerHTML = `<pre>[${res}]</pre>`;
+}
+
+
+
+
+
+function m10() {
+  let obj = { a: 2, b: 5, c: 7 };
+  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
+  let res = sum
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce((acc, num) => acc * num, 1);
+  document.getElementById("output10").innerHTML = `<pre>[${res}]</pre>`;
+}
+
+
+
+
+
 
 // SOME FUNCTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
