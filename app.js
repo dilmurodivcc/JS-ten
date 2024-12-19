@@ -1,59 +1,103 @@
 function m1() {
-  const input = document.getElementById("inputValue").value;
-  const arr = input.trim().split(" ");
-  let length = [];
-  for (let i = 0; i < arr.length; i++) {
-    length.push(arr[i].length);
-  }
-  const max = Math.max(...length);
-  const min = Math.min(...length);
-  const maxW = arr.filter((item) => item.length === max);
-  const minW = arr.filter((item) => item.length === min);
-  document.getElementById(
-    "output"
-  ).innerHTML = `Eng uzun: ${maxW} <br> Eng qisqa: ${minW}`;
+  const n = +document.getElementById("inputValue").value;
+  let obj = {
+    a: 2,
+    b: 3,
+    c: 4,
+  };
+  const res = Object.entries(obj).map(([key, value]) => [key, value * n]);
+  document.getElementById("output").innerHTML = `<pre>${JSON.stringify(
+    Object.fromEntries(res),
+    null,
+    2
+  )}</pre>`;
 }
 
 function m2() {
-  const input = document.getElementById("inputValue2").value;
-  const reverse = input.split("").reverse().join("");
-  document.getElementById("output2").innerHTML = `Teskari qilingan: ${reverse}`;
+  const books = [
+    { title: "Halqa", author: "Akrom Malik", read: false },
+    { title: "Dunyoning ishlari", author: "O’tkir Hoshimov", read: true },
+    {
+      title: "Iymon",
+      author: "Shayx Muhammad Sodiq Muhammad Yusuf",
+      read: true,
+    },
+  ];
+  books.forEach((book) => {
+    if (book.read) {
+      document.getElementById(
+        "output2"
+      ).innerHTML += `${book.title} - ${book.author}:  o'qildi. <br>`;
+    } else {
+      document.getElementById(
+        "output2"
+      ).innerHTML += `${book.title} - ${book.author}:  o'qilmadi <br>`;
+    }
+  });
 }
-
-function m3() {
+function m3(){
   const input = document.getElementById("inputValue3").value;
-  const array = input.trim().split(" ");
-  const reversed = [];
-  for (let i = 0; i < array.length; i++) {
-    const el = array[i];
-    reversed.push(el.split("").reverse().join(""));
+  const arr = input.trim().split(" ");
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0;
+    const el = arr[i];
+    for (let c = 0; c < arr.length; c++) {
+      const e = arr[c];
+      if (el === e) {
+        count++;
+      }
+    }
+    obj[el] = count;
   }
-  document.getElementById("output3").innerHTML = ` "${reversed.join(" ")}"`;
+
+  const formattedOutput = JSON.stringify(obj, null, 4);
+  document.getElementById(
+    "output3"
+  ).innerHTML = `<pre>${formattedOutput}</pre>`;
 }
 
 function m4() {
-  const input = document.getElementById("inputValue4").value;
-  const array = input.trim().split(" ");
-  const result = array[array.length - 1].length;
-  return (document.getElementById(
-    "output4"
-  ).innerHTML = `Oxirgi so'z lengthi: ${result} `);
+  const obj = [
+    {                 
+      name: "John",
+      age: 30,
+    },
+    {
+      name: "Simon",
+      age: 10,
+    },
+    {
+      name: "Jack",
+      age: 20,
+    },
+    {
+      name: "Cate",
+      age: 80,
+    },
+    {
+      name: "Jane",
+      age: 67,
+    },
+  ];
+
+  const sorted = obj.sort((a, b) => b.age - a.age);
+  let res = sorted[0].age - sorted[sorted.length - 1].age;
+  document.getElementById("output4").innerHTML = `Yosh farqi: ${res}`;
 }
 
 function m5() {
   const input = document.getElementById("inputValue5").value;
   const array = input.trim().split(" ");
-  let newArr = [];
-
-  newArr = array.filter(
-    (item) =>
-      array.indexOf(item) !== array.lastIndexOf(item) &&
-      newArr.indexOf(item) === -1
-  );
-  const set = new Set(newArr);
-  document.getElementById("output5").innerHTML = `New arr: [ ${newArr.join(
-    ", "
-  )} ]  <br> or <br> Sorted Version: [ ${[...set].join(", ")} ]`;
+  let obj = {};
+  const minWord = Math.min(...array);
+  console.log(minWord);
+  
+  const maxWord = Math.max(...array)
+  obj.miWord = minWord
+  obj.maxWord = maxWord
+  document.getElementById("output5").innerHTML = `<pre> ${JSON.stringify(obj, null, 2)} </pre>`
 }
 
 function m6() {
@@ -61,8 +105,6 @@ function m6() {
   const array = input.trim().split(" ").join("");
   document.getElementById("output6").innerHTML = `Probelar siz: "${array}"`;
 }
-
-
 
 function m7() {
   const input = document.getElementById("inputValue7").value;
@@ -73,11 +115,6 @@ function m7() {
   const newArr = numbersArray.reduce((acc, item) => acc + item, 0);
   document.getElementById("output7").innerHTML = `Yigindi: [ ${newArr} ]`;
 }
-
-
-
-
-
 
 // SOME FUNCTION -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
