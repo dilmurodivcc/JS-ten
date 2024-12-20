@@ -127,8 +127,6 @@ function m7() {
   document.getElementById("output7").innerHTML = `<pre>[${res}]</pre>`;
 }
 
-
-
 function m8() {
   let obj = { a: 2, b: 5, c: 7 };
   let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
@@ -140,41 +138,28 @@ function m8() {
   document.getElementById("output8").innerHTML = `<pre>[${res}]</pre>`;
 }
 
-
-
-
 function m9() {
   const input9 = +document.getElementById("inputValue9").value;
   const digitCount = input9.toString().length;
-  document.getElementById("output9").innerHTML = 
-  `<pre>Son Uzunligi: ${digitCount}</pre>`;
+  document.getElementById(
+    "output9"
+  ).innerHTML = `<pre>Son Uzunligi: ${digitCount}</pre>`;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 function m10() {
-  let obj = { a: 2, b: 5, c: 7 };
-  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
-  let res = sum
-    .toString()
-    .split("")
-    .map(Number)
-    .reduce((acc, num) => acc * num, 1);
-  document.getElementById("output10").innerHTML = `<pre>[${res}]</pre>`;
+  const input10 = +document.getElementById("inputValue10").value;
+  const reversed = input10.toString().split("").reverse().join("");
+  const res = parseInt(reversed);
+  document.getElementById("output10").innerHTML = `<pre>${res}</pre>`;
 }
+
+
+
+
 
 
 
