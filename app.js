@@ -142,16 +142,24 @@ function m8() {
 
 
 
+
 function m9() {
-  let obj = { a: 2, b: 5, c: 7 };
-  let sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
-  let res = sum
-    .toString()
-    .split("")
-    .map(Number)
-    .reduce((acc, num) => acc * num, 1);
-  document.getElementById("output9").innerHTML = `<pre>[${res}]</pre>`;
+  const input9 = +document.getElementById("inputValue9").value;
+  const digitCount = input9.toString().length;
+  document.getElementById("output9").innerHTML = 
+  `<pre>Son Uzunligi: ${digitCount}</pre>`;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
