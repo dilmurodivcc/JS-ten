@@ -144,6 +144,7 @@ function m9() {
   document.getElementById(
     "output9"
   ).innerHTML = `<pre>Son Uzunligi: ${digitCount}</pre>`;
+  
 }
 
 
@@ -155,8 +156,9 @@ function m10() {
   const reversed = input10.toString().split("").reverse().join("");
   const res = parseInt(reversed);
   document.getElementById("output10").innerHTML = `<pre>${res}</pre>`;
-  
 }
+
+
 
 
 
